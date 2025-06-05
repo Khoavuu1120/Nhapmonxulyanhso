@@ -57,3 +57,49 @@ Bộ lọc trung bình giúp làm mịn ảnh, giảm nhiễu.
 Lưu ảnh kết quả ra bai5_mean_filter.png.
 
 Mục đích: Lọc làm mịn ảnh xám bằng kỹ thuật lọc trung bình để giảm nhiễu hoặc làm mềm ảnh.
+Bài 6: So sánh các bộ lọc khử nhiễu (Mean, Median, Gaussian)
+Đọc ảnh xám từ ảnh màu ban đầu bằng cách tính trung bình theo công thức:
+Gray = 0.299 * R + 0.587 * G + 0.114 * B
+
+Áp dụng 3 bộ lọc khác nhau:
+
+Mean filter (5x5): Làm mượt ảnh bằng trung bình cộng 25 điểm lân cận.
+Median filter (5x5): Lọc bằng cách lấy giá trị trung vị trong cửa sổ 5x5.
+Gaussian filter (sigma=1): Làm mượt ảnh bằng hàm phân phối chuẩn.
+Lưu 3 ảnh kết quả:
+
+bai6_mean_filter.png
+bai6_median_filter.png
+bai6_gaussian_filter.png
+Mục đích: So sánh hiệu quả khử nhiễu của các bộ lọc thông dụng trong xử lý ảnh.
+
+Bài 7: Xác định biên ảnh bằng Laplace
+Sử dụng ảnh đã khử nhiễu từ Bài 6, áp dụng bộ lọc Laplace để phát hiện biên.
+
+Laplace là đạo hàm bậc hai, làm nổi bật rìa đối tượng trong ảnh.
+
+Sử dụng scipy.ndimage.laplace với mode 'reflect' để tránh mất biên.
+
+Lưu ảnh kết quả ra bai7_laplace_filter.png.
+
+Mục đích: Xác định vùng biên rõ ràng giữa các đối tượng trong ảnh bằng kỹ thuật second derivative.
+
+Bài 8: Đổi thứ tự kênh màu RGB ngẫu nhiên
+Đọc ảnh màu gốc, dùng numpy.random.permutation(3) để hoán đổi thứ tự kênh RGB.
+
+Tạo ảnh mới với thứ tự kênh bị xáo trộn, ví dụ: RGB → BRG, GRB, BGR, v.v.
+
+Lưu ảnh kết quả ra bai8_rgb_random.png.
+
+Mục đích: Tạo hiệu ứng màu sắc ngẫu nhiên bằng cách thay đổi thứ tự kênh RGB trong ảnh.
+
+Bài 9: Đổi ngẫu nhiên kênh Hue trong ảnh HSV
+Đọc ảnh màu RGB → chuyển sang hệ màu HSV.
+
+Thay đổi giá trị kênh Hue bằng giá trị ngẫu nhiên (dùng np.random.rand()).
+
+Giữ nguyên Saturation (S) và Value (V), sau đó chuyển ngược HSV → RGB.
+
+Lưu ảnh kết quả ra bai9_hsv_random.png.
+
+Mục đích: Tạo hiệu ứng màu hoàn toàn mới bằng cách thay đổi sắc độ màu (Hue) mà vẫn giữ lại độ bão hòa và sáng gốc.
